@@ -11,12 +11,15 @@ public class NodeTrigger : MonoBehaviour
 
     public void OnTriggerEnter(Collider collider)
     {
+        FollowNodes movingObject;
+        movingObject = collider.gameObject.GetComponent<FollowNodes>();
+
         if(nextNode != null) // verificar si hay
         {
-            FollowNodes movingObject;
-            movingObject = collider.gameObject.GetComponent<FollowNodes>();
-
             movingObject.SetTarget(nextNode);
+            return;
         }
+
+        movingObject.Stop();
     }
 }

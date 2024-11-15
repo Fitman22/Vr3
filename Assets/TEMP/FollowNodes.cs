@@ -12,15 +12,20 @@ public class FollowNodes : MonoBehaviour
     [SerializeField] private float speed;
 
     private Rigidbody playerRb;
+    private bool isMoving;
 
     private void Start()
     {
-        playerRb = gameObject.GetComponent<Rigidbody>();
+        playerRb = GetComponent<Rigidbody>();
+        isMoving = true;
     }
 
     private void Update()
     {
-        UpdateMovement();
+        if (isMoving)
+        {
+            UpdateMovement();
+        }
     }
 
     private void UpdateMovement()
@@ -32,5 +37,10 @@ public class FollowNodes : MonoBehaviour
     public void SetTarget(Transform target)
     {
         this.target = target;
+    }
+
+    public void Stop()
+    {
+        isMoving = false;
     }
 }

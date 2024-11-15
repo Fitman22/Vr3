@@ -15,7 +15,11 @@ public class TriggerDirection : MonoBehaviour
    private void OnTriggerEnter(Collider other) {
     if(other.CompareTag("Player")){
         other.GetComponent<MovePlayer>().setDireccion(direction);
-        
+
         }
    }
 }
+/*
+estoy trabajando en estandarizar los elementos para el diseño de niveles para que sea más rapido hacer los niveles
+
+*/
